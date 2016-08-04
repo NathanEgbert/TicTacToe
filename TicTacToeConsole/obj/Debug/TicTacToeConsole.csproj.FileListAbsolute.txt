@@ -1,0 +1,11 @@
+C:\Users\nathan.egbert\Desktop\TicTacToe\TicTacToeConsole\bin\Debug\TicTacToeConsole.exe.config
+C:\Users\nathan.egbert\Desktop\TicTacToe\TicTacToeConsole\bin\Debug\TicTacToeConsole.exe
+C:\Users\nathan.egbert\Desktop\TicTacToe\TicTacToeConsole\bin\Debug\TicTacToeConsole.pdb
+C:\Users\nathan.egbert\Desktop\TicTacToe\TicTacToeConsole\obj\Debug\TicTacToeConsole.exe
+C:\Users\nathan.egbert\Desktop\TicTacToe\TicTacToeConsole\obj\Debug\TicTacToeConsole.pdb
+C:\Users\nathan.egbert\Desktop\TicTacToe\TicTacToeConsole\obj\Debug\TicTacToeConsole.csprojResolveAssemblyReference.cache
+C:\Users\nathan.egbert\Documents\GitHub\TicTacToe\TicTacToeConsole\bin\Debug\TicTacToeConsole.exe.config
+C:\Users\nathan.egbert\Documents\GitHub\TicTacToe\TicTacToeConsole\obj\Debug\TicTacToeConsole.exe
+C:\Users\nathan.egbert\Documents\GitHub\TicTacToe\TicTacToeConsole\obj\Debug\TicTacToeConsole.pdb
+C:\Users\nathan.egbert\Documents\GitHub\TicTacToe\TicTacToeConsole\bin\Debug\TicTacToeConsole.exe
+C:\Users\nathan.egbert\Documents\GitHub\TicTacToe\TicTacToeConsole\bin\Debug\TicTacToeConsole.pdb
