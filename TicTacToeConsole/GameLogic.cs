@@ -66,8 +66,6 @@ namespace TicTacToeConsole
             }
         }//end place input 
 
-        
-
         public bool checkForwin(string player)
         {
             for (int i = 0; i < 3; i++)
@@ -99,8 +97,6 @@ namespace TicTacToeConsole
             return false;
         }
 
-       
-
         public bool checkFortie()
         {
 
@@ -111,11 +107,57 @@ namespace TicTacToeConsole
         public bool isGameover(string playerX, string playerO)
         {
             return checkForwin(playerX) == true || checkForwin(playerO) == true || checkFortie() == true;
-        }//end game over
+        }//end is game over
+
+        public  void PlayGame()
+        {
+            string input;
+            string playerX = "x";
+
+            PCAI AI = new PCAI();
+            
+            AI.printBoard();
+
+            do
+            {
+               
+                Console.Write("Player " + playerX + " enter your move:");
+                input = Console.ReadLine();
+
+                AI.placeInput(input, playerX);
+                AI.printBoard();
+
+                if (AI.checkForwin(playerX) == true)
+                {
+                    Console.WriteLine("Player " + playerX + " wins!");
+                    break;
+                }
+                else if (AI.checkFortie() == true)
+                {
+                    Console.WriteLine("Tie!");
+                    break;
+                }
 
 
-        
+                AI.pcMove();
+                Console.Clear();
+                AI.printBoard();
 
+                if (AI.checkForwin("o") == true)
+                {
+                    Console.WriteLine("You Lose");
+                    break;
+                }
+
+                if (AI.checkFortie() == true)
+                {
+                    Console.WriteLine("Tie!");
+                    break;
+                }
+
+                Console.WriteLine();
+            } while (!AI.isGameover(playerX, "o"));
+        }
 
     }
 

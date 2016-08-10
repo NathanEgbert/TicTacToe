@@ -23,8 +23,7 @@ namespace TicTacToeConsole
 
             pcwinBlockcheck("x", "o");
 
-
-        }
+        }//end pcMove
 
         public void pcwinBlockcheck(string player, string PC)
         {
@@ -54,7 +53,6 @@ namespace TicTacToeConsole
                     }//end if
                     board[i, k] = original;
 
-
                 }//end for
             }//end for
 
@@ -71,9 +69,10 @@ namespace TicTacToeConsole
                         continue;
                     }
 
+                    //saves the current position on the board to revert back to it
                     string original = board[i, k];
 
-                    //checks for a block
+                    
                     board[i, k] = player;
                     if (checkForwin(player) == true)
                     {
@@ -83,7 +82,9 @@ namespace TicTacToeConsole
                         return;
                     }
 
+                    //sets the board back to original spot if there is no block
                     board[i, k] = original;
+
                 }//end for
             }//end for
 
@@ -91,10 +92,16 @@ namespace TicTacToeConsole
 
         }//end pc win block check
 
+        public void pcForkcheck()
+        {
+           
 
+            
+        }//end fork check 
 
         public void randomMove()
         {
+            
             Random rnum = new Random();
             int number = rnum.Next(0, availableMoves.Count);
             string move = availableMoves.ElementAt(number);
@@ -102,7 +109,7 @@ namespace TicTacToeConsole
             placeInput(move, "o");
 
 
-        }// end random move
+        }//end random move
        
         
 

@@ -9,3 +9,4 @@ C:\Users\nathan.egbert\Documents\GitHub\TicTacToe\TicTacToeConsole\obj\Debug\Tic
 C:\Users\nathan.egbert\Documents\GitHub\TicTacToe\TicTacToeConsole\obj\Debug\TicTacToeConsole.pdb
 C:\Users\nathan.egbert\Documents\GitHub\TicTacToe\TicTacToeConsole\bin\Debug\TicTacToeConsole.exe
 C:\Users\nathan.egbert\Documents\GitHub\TicTacToe\TicTacToeConsole\bin\Debug\TicTacToeConsole.pdb
+C:\Users\nathan.egbert\Documents\GitHub\TicTacToe\TicTacToeConsole\obj\Debug\TicTacToeConsole.csprojResolveAssemblyReference.cache
