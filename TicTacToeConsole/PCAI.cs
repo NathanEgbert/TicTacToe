@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace TicTacToeConsole
 {
-    class PCAI : GameLogic
+    class PcAi : GameLogic
     {
 
-        public void pcMove()
+        /*
+         * makes the pc move
+         * the pc takes the center if available
+         * if not then it calls the PcWinBlockCheck method
+         */
+        public void PcMove()
         {
             //pc takes the center if available 
             if (board[1, 1] != "o" && board[1, 1] != "x")
@@ -19,13 +24,15 @@ namespace TicTacToeConsole
                 availableMoves.Remove("5");
 
                 return;
-            }//end if 
+            }
 
-            pcwinBlockcheck("x", "o");
+            PcWinBlockCheck("x", "o");
+        }
 
-        }//end pcMove
-
-        public void pcwinBlockcheck(string player, string PC)
+        /*
+         * 
+         */ 
+        public void PcWinBlockCheck(string player, string PC)
         {
 
             //checks for win
@@ -40,21 +47,21 @@ namespace TicTacToeConsole
                     {
 
                         continue;
-                    }//end if
+                    }
 
                     original = board[i, k];
                     board[i, k] = PC;
 
-                    if (checkForwin(PC) == true)
+                    if (CheckForWin(PC) == true)
                     {
 
                         return;
 
-                    }//end if
+                    }
                     board[i, k] = original;
 
-                }//end for
-            }//end for
+                }
+            }
 
 
             //checks for block 
@@ -72,9 +79,9 @@ namespace TicTacToeConsole
                     //saves the current position on the board to revert back to it
                     string original = board[i, k];
 
-                    
+
                     board[i, k] = player;
-                    if (checkForwin(player) == true)
+                    if (CheckForWin(player) == true)
                     {
 
                         board[i, k] = PC;
@@ -85,31 +92,34 @@ namespace TicTacToeConsole
                     //sets the board back to original spot if there is no block
                     board[i, k] = original;
 
-                }//end for
-            }//end for
+                }
+            }
 
-            randomMove();
+            RandomMove();
 
-        }//end pc win block check
+        }
 
-        public void pcForkcheck()
+        public void PcForkCheck()
         {
            
 
             
-        }//end fork check 
+        } 
 
-        public void randomMove()
+        /*
+         * creates a random move based on the available moves that are left in te available moves list
+         */ 
+        public void RandomMove()
         {
             
             Random rnum = new Random();
             int number = rnum.Next(0, availableMoves.Count);
             string move = availableMoves.ElementAt(number);
 
-            placeInput(move, "o");
+            PlaceInput(move, "o");
 
 
-        }//end random move
+        }
        
         
 

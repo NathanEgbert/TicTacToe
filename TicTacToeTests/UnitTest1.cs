@@ -12,25 +12,25 @@ namespace TicTacToeTests
         {
 
             GameLogic g1 = new GameLogic();
-            g1.placeInput("1", "x");
-            g1.placeInput("4", "x");
-            g1.placeInput("7", "x");
+            g1.PlaceInput("1", "x");
+            g1.PlaceInput("4", "x");
+            g1.PlaceInput("7", "x");
 
-            Assert.AreEqual(g1.checkForwin("x"), true);
+            Assert.AreEqual(g1.CheckForWin("x"), true);
 
             GameLogic g2 = new GameLogic();
-            g2.placeInput("2", "x");
-            g2.placeInput("5", "x");
-            g2.placeInput("8", "x");
+            g2.PlaceInput("2", "x");
+            g2.PlaceInput("5", "x");
+            g2.PlaceInput("8", "x");
 
-            Assert.AreEqual(g2.checkForwin("x"), true);
+            Assert.AreEqual(g2.CheckForWin("x"), true);
 
             GameLogic g3 = new GameLogic();
-            g3.placeInput("3", "x");
-            g3.placeInput("6", "x");
-            g3.placeInput("9", "x");
+            g3.PlaceInput("3", "x");
+            g3.PlaceInput("6", "x");
+            g3.PlaceInput("9", "x");
 
-            Assert.AreEqual(g2.checkForwin("x"), true);
+            Assert.AreEqual(g2.CheckForWin("x"), true);
 
         }
 
@@ -38,25 +38,25 @@ namespace TicTacToeTests
         public void rowWins()
         {
             GameLogic g1 = new GameLogic();
-            g1.placeInput("1", "o");
-            g1.placeInput("2", "o");
-            g1.placeInput("3", "o");
+            g1.PlaceInput("1", "o");
+            g1.PlaceInput("2", "o");
+            g1.PlaceInput("3", "o");
 
-            Assert.AreEqual(g1.checkForwin("o"), true);
+            Assert.AreEqual(g1.CheckForWin("o"), true);
 
             GameLogic g2 = new GameLogic();
-            g2.placeInput("4", "o");
-            g2.placeInput("5", "o");
-            g2.placeInput("6", "o");
+            g2.PlaceInput("4", "o");
+            g2.PlaceInput("5", "o");
+            g2.PlaceInput("6", "o");
 
-            Assert.AreEqual(g2.checkForwin("o"), true);
+            Assert.AreEqual(g2.CheckForWin("o"), true);
 
             GameLogic g3 = new GameLogic();
-            g3.placeInput("7", "o");
-            g3.placeInput("8", "o");
-            g3.placeInput("9", "o");
+            g3.PlaceInput("7", "o");
+            g3.PlaceInput("8", "o");
+            g3.PlaceInput("9", "o");
 
-            Assert.AreEqual(g2.checkForwin("o"), true);
+            Assert.AreEqual(g2.CheckForWin("o"), true);
 
         }
 
@@ -65,18 +65,18 @@ namespace TicTacToeTests
         {
 
             GameLogic g1 = new GameLogic();
-            g1.placeInput("1", "o");
-            g1.placeInput("5", "o");
-            g1.placeInput("9", "o");
+            g1.PlaceInput("1", "o");
+            g1.PlaceInput("5", "o");
+            g1.PlaceInput("9", "o");
 
-            Assert.AreEqual(g1.checkForwin("o"), true);
+            Assert.AreEqual(g1.CheckForWin("o"), true);
 
             GameLogic g2 = new GameLogic();
-            g2.placeInput("3", "x");
-            g2.placeInput("5", "x");
-            g2.placeInput("7", "x");
+            g2.PlaceInput("3", "x");
+            g2.PlaceInput("5", "x");
+            g2.PlaceInput("7", "x");
 
-            Assert.AreEqual(g2.checkForwin("x"), true);
+            Assert.AreEqual(g2.CheckForWin("x"), true);
 
         }
     }

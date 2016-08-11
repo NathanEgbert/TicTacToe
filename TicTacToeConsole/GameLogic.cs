@@ -12,7 +12,10 @@ namespace TicTacToeConsole
         protected string[,] board;
         protected List<string> availableMoves = new List<string>();
 
-
+        /*
+         * sets the available moves 
+         * sets the board
+         */
         public GameLogic()
         {
 
@@ -34,9 +37,11 @@ namespace TicTacToeConsole
                 {"7", "8", "9"},
             };
 
-        }//end constructor
+        }
 
-        public void printBoard()
+        
+        //prints the board
+        public void PrintBoard()
         {
 
             Console.WriteLine("   | " + board[0, 0] + " | " + board[0, 1] + " | " + board[0, 2] + " |");
@@ -45,12 +50,14 @@ namespace TicTacToeConsole
             Console.WriteLine("   -------------");
             Console.WriteLine("   | " + board[2, 0] + " | " + board[2, 1] + " | " + board[2, 2] + " |");
             Console.WriteLine("   -------------");
+        }
 
-
-
-        }//end print board
-
-        public void placeInput(string pChoice, string player)
+        /*
+         * places the input by passing in the players choice and the player(x or o)
+         * loops through the board to find the spot the player chose and sets that spot to the player
+         * then it removes that spot from the available moves
+         */ 
+        public void PlaceInput(string pChoice, string player)
         {
 
             for (int i = 0; i < 3; i++)
@@ -64,9 +71,12 @@ namespace TicTacToeConsole
                     }
                 }
             }
-        }//end place input 
+        } 
 
-        public bool checkForwin(string player)
+        /*
+         * checks for column wins, row wins, and diagonal wins and returns true if a win is found and false if not
+         */
+        public bool CheckForWin(string player)
         {
             for (int i = 0; i < 3; i++)
             {
@@ -97,26 +107,34 @@ namespace TicTacToeConsole
             return false;
         }
 
-        public bool checkFortie()
+        /*
+         * checks for a tie by returning true if each spot does not equal the original place holder  
+         */ 
+        public bool CheckForTie()
         {
 
             return board[0, 0] != "1" && board[0, 1] != "2" && board[0, 2] != "3" && board[1, 0] != "4" && board[1, 1] != "5" && board[1, 2] != "6" && board[2, 0] != "7" && board[2, 1] != "8" && board[2, 2] != "9";
 
-        }//end check for tie
+        }
 
-        public bool isGameover(string playerX, string playerO)
+        /*
+         * checks to see if the game is over by returning true if 
+         * CheckForWin on either player is true
+         * or checkForTie is true
+         */ 
+        public bool IsGameOver(string playerX, string playerO)
         {
-            return checkForwin(playerX) == true || checkForwin(playerO) == true || checkFortie() == true;
-        }//end is game over
+            return CheckForWin(playerX) == true || CheckForWin(playerO) == true || CheckForTie() == true;
+        }
 
         public  void PlayGame()
         {
             string input;
             string playerX = "x";
 
-            PCAI AI = new PCAI();
+            PcAi AI = new PcAi();
             
-            AI.printBoard();
+            AI.PrintBoard();
 
             do
             {
@@ -124,39 +142,39 @@ namespace TicTacToeConsole
                 Console.Write("Player " + playerX + " enter your move:");
                 input = Console.ReadLine();
 
-                AI.placeInput(input, playerX);
-                AI.printBoard();
+                AI.PlaceInput(input, playerX);
+                AI.PrintBoard();
 
-                if (AI.checkForwin(playerX) == true)
+                if (AI.CheckForWin(playerX) == true)
                 {
                     Console.WriteLine("Player " + playerX + " wins!");
                     break;
                 }
-                else if (AI.checkFortie() == true)
+                else if (AI.CheckForTie() == true)
                 {
                     Console.WriteLine("Tie!");
                     break;
                 }
 
 
-                AI.pcMove();
+                AI.PcMove();
                 Console.Clear();
-                AI.printBoard();
+                AI.PrintBoard();
 
-                if (AI.checkForwin("o") == true)
+                if (AI.CheckForWin("o") == true)
                 {
                     Console.WriteLine("You Lose");
                     break;
                 }
 
-                if (AI.checkFortie() == true)
+                if (AI.CheckForTie() == true)
                 {
                     Console.WriteLine("Tie!");
                     break;
                 }
 
                 Console.WriteLine();
-            } while (!AI.isGameover(playerX, "o"));
+            } while (!AI.IsGameOver(playerX, "o"));
         }
 
     }
