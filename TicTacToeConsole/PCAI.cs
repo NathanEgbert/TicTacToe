@@ -26,43 +26,45 @@ namespace TicTacToeConsole
                 return;
             }
 
+            
+
             PcWinBlockCheck("x", "o");
         }
 
         /*
-         * 
-         */ 
-        public void PcWinBlockCheck(string player, string PC)
+         * checks if the pc can win at the current spot,
+         * then checks if the pc can block the player at the current spot
+         */
+        public void PcWinBlockCheck(string player, string pc)
         {
-
             //checks for win
             for (int i = 0; i <= 2; i++)
             {
                 for (int k = 0; k <= 2; k++)
                 {
-                    string original;
+                    //saves the current position on the board to revert back to it
+                    string original = board[i, k];;
 
                     //checks if spot is taken already
-                    if (board[i, k] == PC || board[i, k] == player)
+                    if (board[i, k] == pc || board[i, k] == player)
                     {
 
                         continue;
                     }
 
-                    original = board[i, k];
-                    board[i, k] = PC;
+                     
+                    board[i, k] = pc;
 
-                    if (CheckForWin(PC) == true)
+                    if (CheckForWin(pc) == true)
                     {
 
                         return;
 
                     }
-                    board[i, k] = original;
 
+                    board[i, k] = original;
                 }
             }
-
 
             //checks for block 
             for (int i = 0; i <= 2; i++)
@@ -70,7 +72,7 @@ namespace TicTacToeConsole
                 for (int k = 0; k <= 2; k++)
                 {
                     //checks if spot is taken already
-                    if (board[i, k] == PC || board[i, k] == player)
+                    if (board[i, k] == pc || board[i, k] == player)
                     {
 
                         continue;
@@ -84,7 +86,7 @@ namespace TicTacToeConsole
                     if (CheckForWin(player) == true)
                     {
 
-                        board[i, k] = PC;
+                        board[i, k] = pc;
                         availableMoves.Remove(board[i, k]);
                         return;
                     }
@@ -95,20 +97,35 @@ namespace TicTacToeConsole
                 }
             }
 
+            PcForkCheck();
             RandomMove();
+        }
+
+        /*
+         * Checks for double win scenarios and blocks the player from playing them.
+         */ 
+        public void PcForkCheck()
+        {
+
+            // if spots 1 & 9 are x's and spot 5 is an o then it will pc to not play a corner move
+            if (board[0, 0] == "x" && board[2, 2] == "x" && board[1, 1] == "o")
+            {
+                availableMoves.Remove("3");
+                availableMoves.Remove("7");
+
+            }
+            // if spots 3 & 7 are x's and spot 5 is an o then it will pc to not play a corner move
+            if (board[0, 2] == "x" && board[2, 0] == "x" && board[1, 1] == "o")
+            {
+                availableMoves.Remove("1");
+                availableMoves.Remove("9");
+            }
 
         }
 
-        public void PcForkCheck()
-        {
-           
-
-            
-        } 
-
         /*
          * creates a random move based on the available moves that are left in te available moves list
-         */ 
+         */
         public void RandomMove()
         {
             
@@ -117,11 +134,6 @@ namespace TicTacToeConsole
             string move = availableMoves.ElementAt(number);
 
             PlaceInput(move, "o");
-
-
         }
-       
-        
-
     }
 }

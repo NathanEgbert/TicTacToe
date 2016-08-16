@@ -11,13 +11,14 @@ namespace TicTacToeConsole
 
         protected string[,] board;
         protected List<string> availableMoves = new List<string>();
-
+        
         /*
          * sets the available moves 
          * sets the board
          */
         public GameLogic()
         {
+            
 
             availableMoves.Add("1");
             availableMoves.Add("2");
@@ -57,17 +58,17 @@ namespace TicTacToeConsole
          * loops through the board to find the spot the player chose and sets that spot to the player
          * then it removes that spot from the available moves
          */ 
-        public void PlaceInput(string pChoice, string player)
+        public void PlaceInput(string playerChoice, string player)
         {
 
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    if (board[i, j].Equals(pChoice))
+                    if (board[i, j].Equals(playerChoice))
                     {
                         board[i, j] = player;
-                        availableMoves.Remove(pChoice);
+                        availableMoves.Remove(playerChoice);
                     }
                 }
             }
@@ -84,27 +85,33 @@ namespace TicTacToeConsole
                 if (board[0, i] == player && board[1, i] == player && board[2, i] == player)
                 {
                     return true;
+                    
                 }
 
                 //check row wins 
                 else if (board[i, 0] == player && board[i, 1] == player && board[i, 2] == player)
                 {
                     return true;
+                    
                 }
-
-            }//end for 
+            }
 
             //check Diagonal wins
             if (board[0, 0] == player && board[1, 1] == player && board[2, 2] == player)
             {
                 return true;
+                
             }
             else if (board[0, 2] == player && board[1, 1] == player && board[2, 0] == player)
             {
                 return true;
+                
             }
-
-            return false;
+            
+            
+            
+                return false;
+            
         }
 
         /*

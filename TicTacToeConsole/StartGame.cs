@@ -11,7 +11,7 @@ namespace TicTacToeConsole
        
         static void Main(string[] args)
         {
-            GameLogic game1 = new GameLogic();
+            var game1 = new GameLogic();
             game1.PlayGame();
             
         }
