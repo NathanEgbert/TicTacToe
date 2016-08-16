@@ -107,11 +107,8 @@ namespace TicTacToeConsole
                 return true;
                 
             }
-            
-            
-            
-                return false;
-            
+                        
+                return false;            
         }
 
         /*
@@ -138,6 +135,7 @@ namespace TicTacToeConsole
         {
             string input;
             string playerX = "x";
+            string pc = "o";
 
             PcAi AI = new PcAi();
             
@@ -168,20 +166,20 @@ namespace TicTacToeConsole
                 Console.Clear();
                 AI.PrintBoard();
 
-                if (AI.CheckForWin("o") == true)
+                if (AI.CheckForWin(pc) == true)
                 {
                     Console.WriteLine("You Lose");
                     break;
                 }
 
-                if (AI.CheckForTie() == true)
+                else if (AI.CheckForTie() == true)
                 {
                     Console.WriteLine("Tie!");
                     break;
                 }
 
                 Console.WriteLine();
-            } while (!AI.IsGameOver(playerX, "o"));
+            } while (!AI.IsGameOver(playerX, pc));
         }
 
     }
