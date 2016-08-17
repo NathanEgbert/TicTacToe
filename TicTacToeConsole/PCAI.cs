@@ -9,11 +9,12 @@ namespace TicTacToeConsole
     class PcAi : GameLogic
     {
 
-        /*
-         * makes the pc move
-         * the pc takes the center if available
-         * if not then it calls the PcWinBlockCheck method
-         */
+        
+        /// <summary>
+        /// Makes the PCs move
+        /// The PC takes the center if available
+        /// If not then it calls the PCWinBlockCheck method
+        /// </summary>
         public void PcMove()
         {
             //pc takes the center if available 
@@ -30,10 +31,14 @@ namespace TicTacToeConsole
             PcWinBlockCheck("x", "o");
         }
 
-        /*
-         * checks if the pc can win at the current spot,
-         * then checks if the pc can block the player at the current spot
-         */
+        
+        /// <summary>
+        /// Checks if the PC can win at the current spot,
+        /// then checks if the PC cna block the player
+        /// at the current spot.
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="pc"></param>
         public void PcWinBlockCheck(string player, string pc)
         {
             //checks for win
@@ -100,9 +105,9 @@ namespace TicTacToeConsole
             RandomMove();
         }
 
-        /*
-         * Checks for double win scenarios and blocks the player from playing them.
-         */
+        /// <summary>
+        /// Checks for doubble win scenarios and blocks the plyer from playing them.
+        /// </summary>
         public void PcForkCheck()
         {
 
@@ -122,9 +127,9 @@ namespace TicTacToeConsole
             }
         }
 
-        /*
-         * creates a random move based on the available moves that are left in te available moves list
-         */
+        /// <summary>
+        /// Creates a random move based on the available moves that are left in the available moves list
+        /// </summary>
         public void RandomMove()
         {
 
